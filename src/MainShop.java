@@ -178,22 +178,14 @@ public class MainShop {
                     checkAgain = false;
                 }
             }
-
-            // HIER WEITERMACHEN !!!!!!
         } catch (InputMismatchException e) {
             System.out.println("Fehlerhafte Eingabe!");
             hauptMenue();
         }
-
-
-
-
-
         hauptMenue();
-
-
-
     }
+
+
     public static void produktSuchen(){
         try {
             boolean searchAgain = true;
@@ -228,11 +220,10 @@ public class MainShop {
                     System.out.println("Keine Produkte gefunden!");
                 }
 
-                System.out.println("Möchten Sie noch ein Produkt bearbeiten? (y/n)");
+                System.out.println("Möchten Sie noch ein Produkt suchen? (y/n)");
                 do {
                     eingabe = scanner.nextLine();
                 } while (!eingabe.equals("y") && !eingabe.equals("n"));
-
                 if (eingabe.equals("n")) {
                     searchAgain = false;
                 }
@@ -245,18 +236,81 @@ public class MainShop {
 
 
     }
-    public static void produktLoeschen(){
-        System.out.println("""
-            -------------------------------------------------------------------------------------
-            PC-Shop                 Produkt löschen                      von:  Rocky Buttelmann
-            -------------------------------------------------------------------------------------
-           
-            """);
 
-    }
+
+
+
+
+    public static void produktLoeschen() {
+        /*
+        Das Löschen soll mit der Methode produktLoeschen() durchgeführt werden.
+        Im Menüpunkt „Produkt löschen“ sollen alle gespeicherten Produkt durchnummeriert angezeigt werden.
+        Bei falscher Eingabe soll eine Info „Fehlerhafte Eingabe“ angezeigt werden und das Hauptmenü wieder angezeigt werden.
+        Nach richtiger Auswahl soll eine Abfrage angezeigt werden, ob wirklich gelöscht werden soll. Wenn ja,
+        lösche das Produkt, wenn nein, soll das Hauptmenü wieder angezeigt werden.
+        */
+        try {
+            boolean deleteAgain = true;
+            while (deleteAgain) {
+
+                String eingabe;
+                int auswahl;
+                int position = 1;
+                String eingabeJaNein;
+                System.out.println("""
+                        -------------------------------------------------------------------------------------
+                        PC-Shop                 Produkt löschen                      von:  Rocky Buttelmann
+                        -------------------------------------------------------------------------------------
+                                   
+                        """);
+                for (Produkt produkt : alleProdukte) {
+                    System.out.println(position + ". " + produkt.ausgabe());
+                    position++;
+                }
+                System.out.println("Welches Produkt soll gelöscht werden? Bitte wählen:");
+                auswahl = scanner.nextInt();
+                scanner.nextLine();
+                if(auswahl >= position || auswahl < 0){
+                    System.out.println("Produkt nicht gefunden!");
+                    produktLoeschen();
+                }
+                System.out.println("Wollen Sie das Produkt wirklich löschen? (y/n)");
+                eingabeJaNein = scanner.nextLine();
+
+                if(eingabeJaNein.equals("y")){
+                    alleProdukte.remove(auswahl-1);
+                } else {
+                    break;
+                }
+
+
+
+                System.out.println("Möchten Sie noch ein Produkt löschen? (y/n)");
+                do {
+                    eingabe = scanner.nextLine();
+                } while (!eingabe.equals("y") && !eingabe.equals("n"));
+                if (eingabe.equals("n")) {
+                    deleteAgain = false;
+                }
+            }
+        } catch (InputMismatchException e) {
+                System.out.println("Fehlerhafte Eingabe!");
+                hauptMenue();
+            }
+            hauptMenue();
+        }
+
+
+
+
+
+
     public static void shopBeenden(){
 
     }
+
+
+
     public static void monitor() {
         try {
             String marke, modell;
