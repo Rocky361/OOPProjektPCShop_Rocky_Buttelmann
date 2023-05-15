@@ -13,4 +13,11 @@ public class Motherboard extends Produkt{
     public void setSockel(String sockel) {
         this.sockel = sockel;
     }
+
+    public String ausgabe(){
+        return "Marke: " + getMarke() + " Modell: " + getModell() + " Preis: " + getPreis() + "€ Sockeltyp: " + getSockel() ;
+    }
+    public String getType(){
+        return "Motherboard";
+    }
 }

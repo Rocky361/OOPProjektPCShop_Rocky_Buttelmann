@@ -17,4 +17,10 @@ public class Monitor extends Produkt{
     public String ausgabe(){
         return "Marke: " + getMarke() + " Modell: " + getModell() + " Preis: " + getPreis() + "€ Größe: " + getGroesse() + " Zoll";
     }
+
+
+
+    public String getType(){
+        return "Monitor";
+    }
 }

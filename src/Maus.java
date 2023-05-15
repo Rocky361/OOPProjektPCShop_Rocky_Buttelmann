@@ -13,4 +13,12 @@ public class Maus extends Produkt{
     public void setTasten(int tasten) {
         this.tasten = tasten;
     }
+
+    public String ausgabe(){
+        return "Marke: " + getMarke() + " Modell: " + getModell() + " Preis: " + getPreis() +  "€ Tasten: " + getTasten() ;
+    }
+    public String getType(){
+        return "Maus";
+    }
+
 }

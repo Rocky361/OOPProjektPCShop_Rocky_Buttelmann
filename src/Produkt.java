@@ -34,4 +34,9 @@ public class Produkt {
     public String ausgabe(){
         return "Marke: " + getMarke();
     }
+    public String getType(){
+        return "Produkt";
+    }
+
+
 }

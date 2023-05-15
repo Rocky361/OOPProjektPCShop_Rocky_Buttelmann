@@ -13,4 +13,21 @@ public class Tastatur extends Produkt{
     public void setBeleuchtet(boolean beleuchtet) {
         this.beleuchtet = beleuchtet;
     }
+
+    public String ausgabe(){
+        String jaNein;
+
+        if(isBeleuchtet()){
+            jaNein = "Ja";
+        }else {
+            jaNein = "Nein";
+        }
+
+        return "Marke: " + getMarke() + " Modell: " + getModell() + " Preis: " + getPreis() + "€ Beleuchtet: " + jaNein ;
+    }
+    public String getType(){
+        return "Tastatur";
+    }
+
+
 }
